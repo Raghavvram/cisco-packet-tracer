@@ -1,5 +1,3 @@
-Here's the documentation with comments explaining each line. I'll include everything in a single markdown file for you.
-
 # Network Configuration Documentation
 
 ## Router Configurations
