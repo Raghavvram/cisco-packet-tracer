@@ -154,5 +154,3 @@
   - From P2, ping P1 (10.0.0.2).
 
 If the pings are successful, the IPSec VPN tunnel is working correctly. This setup ensures that the traffic between P1 and P2 is encrypted and secure as it passes through the IPSec VPN tunnel.
-
-Let me know if you need any further assistance or have any other questions!
