@@ -1,4 +1,4 @@
-# Configuring IPSec VPN Tunnel Betwwen two Devices
+# Configuring IPSec VPN Tunnel Between two Devices
 
 ### Network Topology and Configuration
 
