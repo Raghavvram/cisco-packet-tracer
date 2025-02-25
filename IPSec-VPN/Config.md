@@ -95,5 +95,5 @@ interface GigabitEthernet0/0
 !
 access-list 100 permit ip 192.168.3.0 0.0.0.255 192.168.1.0 0.0.0.255  # Defines traffic to be protected by IPsec
 ```
-
-
+---
+Resource : https://www.youtube.com/watch?v=Z7LwU6H5IGE
