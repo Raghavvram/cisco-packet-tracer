@@ -1,5 +1,3 @@
-Of course! I'll update the commands to use FastEthernet interfaces instead of GigabitEthernet interfaces for the Cisco 2811 routers.
-
 ### Network Topology and Configuration
 
 **Router Used: Cisco 2811**
