@@ -67,46 +67,80 @@
 #### 3. Configure IPSec VPN
 - **R1 Router**:
   ```plaintext
+  enable
+  configure terminal
+  
+  interface GigabitEthernet0/0
+  ip address 192.168.1.2 255.255.255.0
+  no shutdown
+  
+  interface GigabitEthernet0/1
+  ip address 10.0.0.1 255.255.255.0
+  no shutdown
+  
+  ip route 0.0.0.0 0.0.0.0 192.168.1.1
+  
   crypto isakmp policy 10
   encr aes
   authentication pre-share
   group 2
-
+  
   crypto isakmp key cisco123 address 192.168.1.3
-
+  
   crypto ipsec transform-set MYSET esp-aes esp-sha-hmac
-
+  
   crypto map MYMAP 10 ipsec-isakmp
   set peer 192.168.1.3
   set transform-set MYSET
   match address 100
-
+  
   interface GigabitEthernet0/0
   crypto map MYMAP
-
+  
   access-list 100 permit ip 10.0.0.0 0.0.0.255 10.0.1.0 0.0.0.255
+  
+  end
+  write memory
+
   ```
 
 - **R2 Router**:
   ```plaintext
+  enable
+  configure terminal
+  
+  interface GigabitEthernet0/0
+  ip address 192.168.1.3 255.255.255.0
+  no shutdown
+  
+  interface GigabitEthernet0/1
+  ip address 10.0.1.1 255.255.255.0
+  no shutdown
+  
+  ip route 0.0.0.0 0.0.0.0 192.168.1.1
+  
   crypto isakmp policy 10
   encr aes
   authentication pre-share
   group 2
-
+  
   crypto isakmp key cisco123 address 192.168.1.2
-
+  
   crypto ipsec transform-set MYSET esp-aes esp-sha-hmac
-
+  
   crypto map MYMAP 10 ipsec-isakmp
   set peer 192.168.1.2
   set transform-set MYSET
   match address 100
-
+  
   interface GigabitEthernet0/0
   crypto map MYMAP
-
+  
   access-list 100 permit ip 10.0.1.0 0.0.0.255 10.0.0.0 0.0.0.255
+  
+  end
+  write memory
+
   ```
 
 #### 4. Verify the Configuration
