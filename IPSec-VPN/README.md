@@ -1,5 +1,7 @@
 ## Setting up an IPSec VPN in Cisco Packet Tracer with the given network topology:
 
+### Router Used - 2911
+
 ### Network Topology
 - **ISP Router**: Assumed as the ISP.
 - **R1 Router**: Connected to ISP and P1.
