@@ -1,5 +1,5 @@
 
-**Detailed Network Topology Description:**
+### Network Topology:
 
 1. **Router1 (R1):**
     - **Serial 0/0/0 Interface:** Connected to Router2 (R2) via a serial connection.
