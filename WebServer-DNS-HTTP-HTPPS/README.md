@@ -1,11 +1,39 @@
 Alright, let's go step by step to document the network topology, configuration commands, and detailed instructions to set up the web server, DNS server, HTTP, and HTTPS in Cisco Packet Tracer.
 
-### Network Topology Description:
-- **Router1** <-> **Router2** (Serial connection)
-- **Router1** <-> **Switch S1**
-- **Router2** <-> **Switch S2**
-- **Switch S1** <-> **Web Server**
-- **Switch S2** <-> **PC**
+**Detailed Network Topology Description:**
+
+1. **Router1 (R1):**
+    - **Serial 0/0/0 Interface:** Connected to Router2 (R2) via a serial connection.
+    - **GigabitEthernet 0/0 Interface:** Connected to Switch S1. This interface is used to provide connectivity to the Web Server.
+
+2. **Router2 (R2):**
+    - **Serial 0/0/1 Interface:** Connected to Router1 (R1) via a serial connection.
+    - **GigabitEthernet 0/1 Interface:** Connected to Switch S2. This interface is used to provide connectivity to the PC.
+
+3. **Switch S1:**
+    - **Interface:** Connected to Router1 (R1) via GigabitEthernet 0/0 interface.
+    - **Interface:** Connected to the Web Server via FastEthernet 0 interface.
+
+4. **Switch S2:**
+    - **Interface:** Connected to Router2 (R2) via GigabitEthernet 0/1 interface.
+    - **Interface:** Connected to the PC via FastEthernet 0 interface.
+
+5. **Web Server:**
+    - **FastEthernet 0 Interface:** Connected to Switch S1. The Web Server is assigned an IP address within the 192.168.10.0/24 network.
+
+6. **PC:**
+    - **FastEthernet 0 Interface:** Connected to Switch S2. The PC is assigned an IP address within the 192.168.20.0/24 network.
+
+**Summary:**
+- **Router1** is connected to **Router2** via a serial connection.
+- **Router1** is connected to **Switch S1** via a GigabitEthernet interface.
+- **Router2** is connected to **Switch S2** via a GigabitEthernet interface.
+- **Switch S1** is connected to the **Web Server**.
+- **Switch S2** is connected to the **PC**.
+
+This setup ensures that the Web Server and PC are in different subnets, allowing for network segmentation and better traffic management. The routers handle inter-subnet communication via static routes.
+
+Let me know if you need further assistance with configurations or have any questions!
 
 ### Table of Devices with Interfaces and IP Addresses:
 | Device      | Interface        | IP Address    |
