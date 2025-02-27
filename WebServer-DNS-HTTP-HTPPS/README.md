@@ -111,4 +111,4 @@ end
 2. For **HTTP**, type `http://www.example.com` or `http://192.168.10.2`.
 3. For **HTTPS**, type `https://www.example.com` or `https://192.168.10.2`.
 
-That covers the complete documentation for setting up the network, web server, DNS, HTTP, and HTTPS in Cisco Packet Tracer. If you need more details or have further questions, feel free to ask!
+That covers the complete documentation for setting up the network, web server, DNS, HTTP, and HTTPS in Cisco Packet Tracer.
