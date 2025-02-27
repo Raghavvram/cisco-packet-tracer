@@ -1,196 +1,98 @@
-Step-by-Step Instructions
-Create the Topology:
+Sure, I'll provide the network topology and configuration commands for your Cisco Packet Tracer setup. 
 
-Open Cisco Packet Tracer and create a new project.
+**Network Topology Description:**
 
-Add the following devices to the workspace:
+- **Router1** <-> **Router2** (Serial connection)
+- **Router1** <-> **Switch S1**
+- **Router2** <-> **Switch S2**
+- **Switch S1** <-> **Web Server**
+- **Switch S2** <-> **PC**
 
-Two Cisco 2911 routers (R1 and R2)
+**Table of Devices with Interfaces and IP Addresses:**
 
-One web server
+| Device      | Interface     | IP Address    |
+|-------------|---------------|---------------|
+| Router1     | Serial 0/0/0  | 192.168.1.1   |
+| Router2     | Serial 0/0/1  | 192.168.1.2   |
+| Router1     | Gigabit 0/0   | 192.168.10.1  |
+| Router2     | Gigabit 0/1   | 192.168.20.1  |
+| Switch S1   | N/A           | N/A           |
+| Switch S2   | N/A           | N/A           |
+| Web Server  | FastEthernet0 | 192.168.10.2  |
+| PC          | FastEthernet0 | 192.168.20.2  |
 
-One PC
+**Configuration Commands:**
 
-Connect the devices according to the IP address table provided.
+1. **Router1 Configuration:**
+    ```plaintext
+    enable
+    configure terminal
+    interface serial 0/0/0
+    ip address 192.168.1.1 255.255.255.0
+    no shutdown
+    interface gigabitEthernet 0/0
+    ip address 192.168.10.1 255.255.255.0
+    no shutdown
+    exit
+    ip route 192.168.20.0 255.255.255.0 192.168.1.2
+    end
+    ```
 
-Configure Router R1:
+2. **Router2 Configuration:**
+    ```plaintext
+    enable
+    configure terminal
+    interface serial 0/0/1
+    ip address 192.168.1.2 255.255.255.0
+    no shutdown
+    interface gigabitEthernet 0/1
+    ip address 192.168.20.1 255.255.255.0
+    no shutdown
+    exit
+    ip route 192.168.10.0 255.255.255.0 192.168.1.1
+    end
+    ```
 
-Click on Router R1 and access the CLI.
+3. **Web Server Configuration:**
+    - Set IP Address:
+        ```plaintext
+        IP Address: 192.168.10.2
+        Subnet Mask: 255.255.255.0
+        Default Gateway: 192.168.10.1
+        ```
+    - Configure DNS Server:
+        ```plaintext
+        DNS Server: 192.168.10.2
+        ```
+    - Configure HTTP/HTTPS:
+        - Enable HTTP and HTTPS services on the web server through its settings.
 
-Enter the following commands to configure the interfaces:
+4. **PC Configuration:**
+    - Set IP Address:
+        ```plaintext
+        IP Address: 192.168.20.2
+        Subnet Mask: 255.255.255.0
+        Default Gateway: 192.168.20.1
+        DNS Server: 192.168.10.2
+        ```
 
-enable
-configure terminal
-interface GigabitEthernet0/0
-ip address 192.168.1.1 255.255.255.0
-no shutdown
-exit
-interface Serial0/0/0
-ip address 10.0.0.1 255.255.255.252
-clock rate 64000
-no shutdown
-exit
-end
-write memory
-Configure Router R2:
+**Setting Up DNS, HTTPS, and HTTP:**
 
-Click on Router R2 and access the CLI.
+1. **DNS Server:**
+    - Open the Web Server services.
+    - Go to DNS service and turn it on.
+    - Add A records to map the domain name to the IP address, for example:
+        ```plaintext
+        Name: www.example.com
+        Address: 192.168.10.2
+        ```
 
-Enter the following commands to configure the interfaces:
+2. **HTTP/HTTPS:**
+    - Enable HTTP and HTTPS services in the Web Server settings.
+    - Verify that both services are running.
 
-enable
-configure terminal
-interface GigabitEthernet0/0
-ip address 192.168.2.1 255.255.255.0
-no shutdown
-exit
-interface Serial0/0/0
-ip address 10.0.0.2 255.255.255.252
-no shutdown
-exit
-end
-write memory
-Configure the Web Server:
+**Accessing the Web Server:**
 
-Click on the Web Server and access the Desktop tab.
-
-Select the IP Configuration option and enter the following details:
-
-IP Address: 192.168.1.2
-Subnet Mask: 255.255.255.0
-Default Gateway: 192.168.1.1
-Enable the DNS server and add a DNS record:
-
-Enable DNS Server: Yes
-Add a DNS Record: www.example.com 192.168.1.2
-Enable HTTP and HTTPS services:
-
-HTTP Server: On
-HTTPS Server: On
-Configure the PC:
-
-Click on the PC and access the Desktop tab.
-
-Select the IP Configuration option and enter the following details:
-
-IP Address: 192.168.2.2
-Subnet Mask: 255.255.255.0
-Default Gateway: 192.168.2.1
-DNS Server: 192.168.1.2
-Verify Connectivity:
-
-Ping the web server from the PC to verify connectivity:
-
-ping 192.168.1.2
-Open a web browser on the PC and access the web server using the DNS name:
-
-http://www.example.com
-https://www.example.com
-By following these steps, you should be able to set up the web server with DNS, HTTP, and HTTPS in Cisco Packet Tracer successfully. If you encounter any issues or need further assistance, feel free to ask!
-
-give the netowrk topoloy like each device name and the interface they are connected to each and also give the table along with interface ip address and device name, along with commands return a comprehensive documentation
-Sure, here's a comprehensive documentation for setting up a network topology with DNS, HTTP, and HTTPS in Cisco Packet Tracer, including device names, interfaces, and commands.
-
-Network Topology
-Router 2911 (R1)
-
-Interfaces:
-
-GigabitEthernet0/0
-
-Serial0/0/0
-
-Connections:
-
-GigabitEthernet0/0 to Web Server (Ethernet)
-
-Serial0/0/0 to Router 2911 (R2) Serial0/0/0
-
-Router 2911 (R2)
-
-Interfaces:
-
-GigabitEthernet0/0
-
-Serial0/0/0
-
-Connections:
-
-GigabitEthernet0/0 to PC (Ethernet)
-
-Serial0/0/0 to Router 2911 (R1) Serial0/0/0
-
-Web Server
-
-Interface:
-
-Ethernet
-
-Connection:
-
-Ethernet to Router 2911 (R1) GigabitEthernet0/0
-
-PC
-
-Interface:
-
-Ethernet
-
-Connection:
-
-Ethernet to Router 2911 (R2) GigabitEthernet0/0
-
-IP Address Table
-Device	Interface	IP Address
-R1	GigabitEthernet0/0	192.168.1.1
-R1	Serial0/0/0	10.0.0.1
-R2	GigabitEthernet0/0	192.168.2.1
-R2	Serial0/0/0	10.0.0.2
-Web Server	Ethernet	192.168.1.2
-PC	Ethernet	192.168.2.2
-Commands for Each Device
-Router 2911 (R1)
-enable
-configure terminal
-interface GigabitEthernet0/0
-ip address 192.168.1.1 255.255.255.0
-no shutdown
-exit
-interface Serial0/0/0
-ip address 10.0.0.1 255.255.255.252
-clock rate 64000
-no shutdown
-exit
-end
-write memory
-Router 2911 (R2)
-enable
-configure terminal
-interface GigabitEthernet0/0
-ip address 192.168.2.1 255.255.255.0
-no shutdown
-exit
-interface Serial0/0/0
-ip address 10.0.0.2 255.255.255.252
-no shutdown
-exit
-end
-write memory
-Web Server
-IP Configuration:
-
-IP Address: 192.168.1.2
-Subnet Mask: 255.255.255.0
-Default Gateway: 192.168.1.1
-DNS Configuration:
-
-Enable DNS Server: Yes
-Add a DNS Record: www.example.com 192.168.1.2
-HTTP and HTTPS Configuration:
-
-HTTP Server: On
-HTTPS Server: On
-PC
-IP Configuration:
-
-IP Address
+- Open a web browser on the PC.
+- For HTTP, type `http://www.example.com` or `http://192.168.10.2`.
+- For HTTPS, type `https://www.example.com
