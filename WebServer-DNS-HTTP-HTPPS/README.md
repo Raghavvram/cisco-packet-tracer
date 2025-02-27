@@ -23,16 +23,6 @@
 6. **PC:**
     - **FastEthernet 0 Interface:** Connected to Switch S2. The PC is assigned an IP address within the 192.168.20.0/24 network.
 
-**Summary:**
-- **Router1** is connected to **Router2** via a serial connection.
-- **Router1** is connected to **Switch S1** via a GigabitEthernet interface.
-- **Router2** is connected to **Switch S2** via a GigabitEthernet interface.
-- **Switch S1** is connected to the **Web Server**.
-- **Switch S2** is connected to the **PC**.
-
-This setup ensures that the Web Server and PC are in different subnets, allowing for network segmentation and better traffic management. The routers handle inter-subnet communication via static routes.
-
-Let me know if you need further assistance with configurations or have any questions!
 
 ### Table of Devices with Interfaces and IP Addresses:
 | Device      | Interface        | IP Address    |
