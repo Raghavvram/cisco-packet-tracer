@@ -1,4 +1,3 @@
-Alright, let's go step by step to document the network topology, configuration commands, and detailed instructions to set up the web server, DNS server, HTTP, and HTTPS in Cisco Packet Tracer.
 
 **Detailed Network Topology Description:**
 
